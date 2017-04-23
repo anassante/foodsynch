@@ -22,29 +22,28 @@ filtered = [i for i in recipes if isVegan(i)]
 #   if isVegan(i):
 #     print(i)
 
-print(filtered)
+#print(filtered)
 
 ### generalized version
 
-filter_ingredients = []
+#filter_ingredients = []
 
-response = input("Let's look at your first guest's food preferences. Is there anything they're unable to eat?")
+# response = input("Let's look at your first guest's food preferences. Is there anything they're unable to eat?")
 
-while True:
-  if response.lower() in ['n', 'no', 'nope', 'nothing']:
-    break
-  else:
-    filter_ingredients.append(response)
+# while True:
+#   if response.lower() in ['n', 'no', 'nope', 'nothing']:
+#     break
+#   else:
+#     filter_ingredients.append(response)
     
-  response = input("Is there anything else they're unable to eat?")
+#   response = input("Is there anything else they're unable to eat?")
   
 def isAcceptable(li):
   for i in li:
     if i in filter_ingredients:
       return False
   return True
+def filterList(li):
+  return [i for i in recipes if isAcceptable(i)]
 
-filtered = [i for i in recipes if isAcceptable(i)]
 
-print("Here are the recipes you can use:")
-print(filtered)

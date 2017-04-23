@@ -1,7 +1,11 @@
 from flask import Flask, render_template, request
+import jsonfilter
+import filterlist
 
 app = Flask(__name__)
 
+
+outputlist = None
 
 
 @app.route('/')
@@ -12,10 +16,24 @@ def index(user=None):
 @app.route('/home')
 def home():
 	return "this is home"
-@app.route('/planingid/<int:planingid>', methods=['GET','POST'])
+@app.route('/planingid/<int:planingid>', methods=['GET'])
 def planing(planingid):
 	return render_template("profile.html", planingid=planingid)
 
+@app.route('/planingid/<int:planingid>', methods=['POST'])
+def my_form_post(planingid):
+	text = request.form['restrictions']
+
+	processed_text = text
+	print(processed_text)
+
+	templist = processed_text.split()
+	print(templist)
+
+	recipelist = jsonFilter(templist)
+	print(recipelist)
+
+	return processed_text
 
 
 
