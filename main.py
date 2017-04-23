@@ -16,12 +16,12 @@ def index(user=None):
 @app.route('/home')
 def home():
 	return "this is home"
-@app.route('/planingid/<int:planingid>', methods=['GET'])
-def planing(planingid):
-	return render_template("profile.html", planingid=planingid)
+@app.route('/planningid/<int:planningid>', methods=['GET'])
+def planning(planningid):
+	return render_template("profile.html", planningid=planningid)
 
-@app.route('/planingid/<int:planingid>', methods=['POST'])
-def my_form_post(planingid):
+@app.route('/planningid/<int:planningid>', methods=['POST'])
+def my_form_post(planningid):
 	text = request.form['restrictions']
 
 	processed_text = text

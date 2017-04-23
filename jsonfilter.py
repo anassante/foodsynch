@@ -1,15 +1,23 @@
 import json
 
-def jsonFilter(list):
+def isAcceptable(li, filter_ingredients):
+  for i in li:
+    if i in filter_ingredients:
+      return False
+  return True
+
+def jsonFilter(listy):
 	returnlist = []
 	with open('openrecipes.json') as data_file:
 		data = json.load(data_file)
-	for i in range(50):
+	for i in range(30):
 		data_lowered = data[i]['ingredients'].lower()
-		for element in list:
-			if (element  in data[i]['ingredients']):
-				break
-		returnlist.append([data[i]['name'], data[i]['url']])
+		#print("DEBUG DW",data_lowered)
+		#print("DEBUG ELEMENT",element)
+		if (isAcceptable(listy, data_lowered)):
+			returnlist.append([data[i]['name'], data[i]['url']])
+
+
 
 	return returnlist
 
