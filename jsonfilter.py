@@ -2,7 +2,7 @@ import json
 
 def jsonFilter(list):
 	returnlist = []
-	with open('test.json') as data_file:
+	with open('openrecipes.json') as data_file:
 		data = json.load(data_file)
 	for i in range(50):
 		data_lowered = data[i]['ingredients'].lower()

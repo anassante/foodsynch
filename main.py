@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-import jsonfilter
+from jsonfilter import jsonFilter
 import filterlist
 
 app = Flask(__name__)
@@ -33,7 +33,15 @@ def my_form_post(planingid):
 	recipelist = jsonFilter(templist)
 	print(recipelist)
 
-	return processed_text
+
+
+	retval = '<ol>'
+	for item in recipelist:
+		retval += '<li><a href="' + item[1] + '">' + item[0] + '</a></li>'
+
+	retval += '</ol>'
+	return retval
+
 
 
 
