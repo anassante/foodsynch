@@ -35,7 +35,7 @@ def my_form_post(planningid):
 
 
 
-	retval = '<ol>'
+	retval = '<h1>Here are your personalized recipes!</h1><br><ol>'
 	for item in recipelist:
 		retval += '<li><a href="' + item[1] + '">' + item[0] + '</a></li>'
 
