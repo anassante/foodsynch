@@ -3,3 +3,4 @@
 - user profiles
 - display result recipe onsite
 - invite everyone to the party
+- make a groupname of the planingid
